@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WanderCraft</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg wc-navbar sticky-top">
+        <div class="container-fluid">
+            <a class="wc-logo-wrap" href="index.html">
+                <img src="images/logo.png" alt="WanderCraft" class="wc-nav-logo"/>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+                <i class="bi bi-list text-white fs-4"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav ms-auto align-items-center gap-1 py-2 py-lg-0">
+                    <li><a class="wc-nav-link" href="index.html">Home</a></li>
+                    <li><a class="wc-nav-link" href="plain.html">Plan Trip</a></li>
+                    <li><a class="wc-nav-link" href="destinations.html">Destinations</a></li>
+                    <li><a class="wc-nav-link" href="itinerary.html">Itinerary</a></li>
+                    <li><a class="wc-nav-link active-page" href="hotels.html">Hotels</a></li>
+                    <li class="ms-2"><a class="wc-nav-cta" href="plain.html">Plan My Trip ✈</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="wc-page-header">
+        <div class="container">
+            <div class="wc-eyebrow">✦ STEP 4 OF 4</div>
+            <h2 class="wc-page-title">Hotel Recommendations</h2>
+            <p class="wc-page-sub">Best hotels near <span id="hotel-dest-title">Kandy</span> for your stay</p>
+        </div>
+    </div>
+
+    <div class="wc-steps-bar">
+        <div class="container">
+            <div class="d-flex align-items-center flex-wrap gap-2">
+                <div class="wc-step">
+                    <div class="wc-step-circle done">✓</div>
+                    <div class="ms-2">
+                        <div class="wc-step-lbl">Trip Details</div>
+                        <div class="wc-step-sub">Done</div>
+                    </div>
+                </div>
+                <div class="wc-step-line"></div>
+                <div class="wc-step">
+                    <div class="wc-step-circle done">✓</div>
+                    <div class="ms-2">
+                        <div class="wc-step-lbl">Recommendations</div>
+                        <div class="wc-step-sub">Done</div>
+                    </div>
+                </div>
+                <div class="wc-step-line"></div>
+                <div class="wc-step">
+                    <div class="wc-step-circle done">✓</div>
+                    <div class="ms-2">
+                        <div class="wc-step-lbl">Itinerary</div>
+                        <div class="wc-step-sub">Done</div>
+                    </div>
+                </div>
+                <div class="wc-step-line"></div>
+                <div class="wc-step">
+                    <div class="wc-step-circle active">4</div>
+                    <div class="ms-2">
+                        <div class="wc-step-lbl">Hotels</div>
+                        <div class="wc-step-sub">Book your stay</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="py-4" style="background:#f4f7fb;">
+        <div class="container">
+            <div class="d-flex gap-2 flex-wrap mb-4">
+                <button class="wc-htoggle active-htoggle" onclick="filterHotels('all',this)">All Hotels</button>
+                <button class="wc-htoggle" onclick="filterHotels('budget',this)">💙 Budget</button>
+                <button class="wc-htoggle" onclick="filterHotels('standard',this)">🧡 Standard</button>
+                <button class="wc-htoggle" onclick="filterHotels('luxury',this)">⭐ Luxury</button>
+            </div>
+            <div class="row g-4" id="hotel-cards-container"></div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="bookingModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content wc-modal">
+                <div id="modal-form-view">
+                    <div class="modal-header wc-modal-header">
+                        <h5 class="modal-title text-white">🏨 Book Your Stay</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body p-4">
+                        <p class="wc-modal-hotel-name mb-4" id="modal-hotel-name">Hotel Name</p>
+                        <div class="mb-3">
+                            <label class="wc-label">FULL NAME</label>
+                            <input type="text" id="book-name" class="wc-input mt-1" placeholder="Enter your full name"/>
+                            <div id="err-book-name" class="wc-err d-none">⚠ Name is required</div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="wc-label">EMAIL ADDRESS</label>
+                            <input type="email" id="book-email" class="wc-input mt-1" placeholder="Enter your email"/>
+                            <div id="err-book-email" class="wc-err d-none">⚠ Valid email is required</div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="wc-label">CHECK-IN DATE</label>
+                            <input type="date" id="book-date" class="wc-input mt-1"/>
+                        </div>
+                        <div class="mb-3">
+                            <label class="wc-label">NUMBER OF NIGHTS</label>
+                            <input type="number" id="book-nights" class="wc-input mt-1" value="2" min="1" max="30"/>
+                        </div>
+                    </div>
+                    <div class="modal-footer border-0 px-4 pb-4">
+                        <button class="wc-btn-primary w-100" onclick="submitBooking()">Confirm Booking ✓</button>
+                    </div>
+                </div>
+                <div id="modal-success-view" class="d-none text-center p-5">
+                    <div class="wc-success-icon">✅</div>
+                    <h4 class="wc-success-title mt-3">Booking Confirmed!</h4>
+                    <p class="wc-success-sub">Your reservation at <strong id="success-hotel-name"></strong> has been sent. Check your email for details.</p>
+                    <button class="wc-btn-primary mt-3" data-bs-dismiss="modal" onclick="resetModal()">Done</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="wc-footer">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="wc-footer-brand">Wander<span>Craft</span></div>
+                    <div class="wc-footer-tag">SMART TRAVEL PLANNER</div>
+                    <p class="wc-footer-desc">Helping travelers discover the beauty of Sri Lanka with smart, time-aware trip planning.</p>
+                </div>
+                <div class="col-lg-2 col-6">
+                    <div class="wc-footer-head">PAGES</div>
+                    <a href="index.html" class="wc-footer-link">Home</a>
+                    <a href="plain.html" class="wc-footer-link">Plan Trip</a>
+                    <a href="destinations.html" class="wc-footer-link">Destinations</a>
+                    <a href="itinerary.html" class="wc-footer-link">Itinerary</a>
+                    <a href="hotels.html" class="wc-footer-link">Hotels</a>
+                </div>
+                <div class="col-lg-3 col-6">
+                    <div class="wc-footer-head">DESTINATIONS</div>
+                    <a href="plain.html" class="wc-footer-link">Kandy</a>
+                    <a href="plain.html" class="wc-footer-link">Ella</a>
+                    <a href="plain.html" class="wc-footer-link">Sigiriya</a>
+                    <a href="plain.html" class="wc-footer-link">Mirissa</a>
+                    <a href="plain.html" class="wc-footer-link">Nuwara Eliya</a>
+                </div>
+                <div class="col-lg-3">
+                    <div class="wc-footer-head">CONTACT US</div>
+                    <p class="wc-footer-link" style="cursor:default">Mobile: +94 77 123 4567</p>
+                    <p class="wc-footer-link" style="cursor:default">Email: info@wanderCraft.com</p>
+                    <p class="wc-footer-link" style="cursor:default">Instagram: @wanderCraft</p>
+                    <p class="wc-footer-link" style="cursor:default">Facebook: /wanderCraft</p>
+                </div>
+            </div>
+            <div class="wc-footer-bottom">
+                <div class="wc-footer-copy">© 2025 WanderCraft · All Rights Reserved</div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>
