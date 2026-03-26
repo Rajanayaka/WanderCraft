@@ -49,10 +49,10 @@ $stmt->close();
         <div class="collapse navbar-collapse" id="navMenu">
             <ul class="navbar-nav ms-auto align-items-center gap-1 py-2 py-lg-0">
                 <li><a class="wc-nav-link" href="index.php">Home</a></li>
-                <li><a class="wc-nav-link" href="plain.html">Plan Trip</a></li>
-                <li><a class="wc-nav-link" href="destinations.html">Destinations</a></li>
-                <li><a class="wc-nav-link" href="itinerary.html">Itinerary</a></li>
-                <li><a class="wc-nav-link" href="hotels.html">Hotels</a></li>
+                <li><a class="wc-nav-link" href="plain.php">Plan Trip</a></li>
+                <li><a class="wc-nav-link" href="destinations.php">Destinations</a></li>
+                <li><a class="wc-nav-link" href="itinerary.php">Itinerary</a></li>
+                <li><a class="wc-nav-link" href="hotels.php">Hotels</a></li>
                 <li><a class="wc-nav-link" href="contact.php">Contact</a></li>
                 <li><a class="wc-nav-link active-page" href="dashboard.php">Dashboard</a></li>
                 <li class="ms-2"><a class="wc-nav-cta" href="auth/logout.php">Logout</a></li>
@@ -85,7 +85,7 @@ $stmt->close();
                             <div style="font-size:11px;color:#b0c4d8;margin-top:4px;">Member since <?= date('M Y', strtotime($userInfo['created_at'])) ?></div>
                         </div>
                     </div>
-                    <a href="plain.html" class="wc-btn-primary d-block text-center text-decoration-none">✈ Plan a New Trip</a>
+                    <a href="plain.php" class="wc-btn-primary d-block text-center text-decoration-none">✈ Plan a New Trip</a>
                     <a href="contact.php" class="wc-btn-outline d-block text-center text-decoration-none mt-2">Contact Us</a>
                     <div class="mt-3 text-center">
                         <a href="auth/logout.php" style="font-size:13px;color:#ff6b35;font-weight:700;text-decoration:none;">Sign Out →</a>
@@ -112,9 +112,9 @@ $stmt->close();
                 <div class="wc-panel">
                     <div class="wc-side-label mb-3">QUICK LINKS</div>
                     <div class="d-flex flex-wrap gap-2">
-                        <a href="destinations.html" class="wc-pill">🗺️ Destinations</a>
-                        <a href="itinerary.html"    class="wc-pill">📅 Itinerary</a>
-                        <a href="hotels.html"       class="wc-pill">🏨 Hotels</a>
+                        <a href="destinations.php" class="wc-pill">🗺️ Destinations</a>
+                        <a href="itinerary.php"    class="wc-pill">📅 Itinerary</a>
+                        <a href="hotels.php"       class="wc-pill">🏨 Hotels</a>
                         <a href="contact.php"       class="wc-pill">✉️ Contact</a>
                     </div>
                 </div>
@@ -127,7 +127,7 @@ $stmt->close();
                 My Bookings
             </div>
             <?php if (empty($bookings)): ?>
-                <p style="color:#7a8fa6;font-size:14px;">No bookings yet. <a href="hotels.html" style="color:#00aed6;font-weight:700;">Browse hotels →</a></p>
+                <p style="color:#7a8fa6;font-size:14px;">No bookings yet. <a href="hotels.php" style="color:#00aed6;font-weight:700;">Browse hotels →</a></p>
             <?php else: ?>
                 <div class="table-responsive">
                     <table class="table table-hover">

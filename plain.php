@@ -1,3 +1,7 @@
+<?php
+session_start();
+require_once 'includes/functions.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +17,7 @@
 
     <nav class="navbar navbar-expand-lg wc-navbar sticky-top">
         <div class="container-fluid">
-            <a class="wc-logo-wrap" href="index.html">
+            <a class="wc-logo-wrap" href="index.php">
                 <img src="images/logo.png" alt="WanderCraft" class="wc-nav-logo"/>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
@@ -21,12 +25,18 @@
             </button>
             <div class="collapse navbar-collapse" id="navMenu">
                 <ul class="navbar-nav ms-auto align-items-center gap-1 py-2 py-lg-0">
-                    <li><a class="wc-nav-link" href="index.html">Home</a></li>
-                    <li><a class="wc-nav-link active-page" href="plan.html">Plan Trip</a></li>
-                    <li><a class="wc-nav-link" href="destinations.html">Destinations</a></li>
-                    <li><a class="wc-nav-link" href="itinerary.html">Itinerary</a></li>
-                    <li><a class="wc-nav-link" href="hotels.html">Hotels</a></li>
-                    <li class="ms-2"><a class="wc-nav-cta" href="plan.html">Plan My Trip ✈</a></li>
+                    <li><a class="wc-nav-link" href="index.php">Home</a></li>
+                    <li><a class="wc-nav-link active-page" href="plain.php">Plan Trip</a></li>
+                    <li><a class="wc-nav-link" href="destinations.php">Destinations</a></li>
+                    <li><a class="wc-nav-link" href="itinerary.php">Itinerary</a></li>
+                    <li><a class="wc-nav-link" href="hotels.php">Hotels</a></li>
+                                    <?php if (isLoggedIn()): ?>
+                    <li><a class="wc-nav-link" href="dashboard.php">?? <?= htmlspecialchars(getUsername()) ?></a></li>
+                    <li class="ms-2"><a class="wc-nav-cta" href="auth/logout.php">Logout</a></li>
+                <?php else: ?>
+                    <li><a class="wc-nav-link" href="auth/login.php">Login</a></li>
+                    <li class="ms-2"><a class="wc-nav-cta" href="auth/register.php">Register ?</a></li>
+                <?php endif; ?>
                 </ul>
             </div>
         </div>
@@ -180,7 +190,7 @@
                             </div>
                         </div>
                         <button class="wc-btn-generate mt-4" onclick="goToReco()">
-                            <a href="destinations.html" class="wc-btn-primary">✦ GENERATE MY ITINERARY →</a>
+                            <a href="destinations.php" class="wc-btn-primary">✦ GENERATE MY ITINERARY →</a>
                         </button>
                     </div>
                 </div>
@@ -199,19 +209,19 @@
                 </div>
                 <div class="col-lg-2 col-6">
                     <div class="wc-footer-head">PAGES</div>
-                    <a href="index.html" class="wc-footer-link">Home</a>
-                    <a href="plan.html" class="wc-footer-link">Plan Trip</a>
-                    <a href="destinations.html" class="wc-footer-link">Destinations</a>
-                    <a href="itinerary.html" class="wc-footer-link">Itinerary</a>
-                    <a href="hotels.html" class="wc-footer-link">Hotels</a>
+                    <a href="index.php" class="wc-footer-link">Home</a>
+                    <a href="plain.php" class="wc-footer-link">Plan Trip</a>
+                    <a href="destinations.php" class="wc-footer-link">Destinations</a>
+                    <a href="itinerary.php" class="wc-footer-link">Itinerary</a>
+                    <a href="hotels.php" class="wc-footer-link">Hotels</a>
                 </div>
                 <div class="col-lg-3 col-6">
                     <div class="wc-footer-head">DESTINATIONS</div>
-                    <a href="plan.html" class="wc-footer-link">Kandy</a>
-                    <a href="plan.html" class="wc-footer-link">Ella</a>
-                    <a href="plan.html" class="wc-footer-link">Sigiriya</a>
-                    <a href="plan.html" class="wc-footer-link">Mirissa</a>
-                    <a href="plan.html" class="wc-footer-link">Nuwara Eliya</a>
+                    <a href="plain.php" class="wc-footer-link">Kandy</a>
+                    <a href="plain.php" class="wc-footer-link">Ella</a>
+                    <a href="plain.php" class="wc-footer-link">Sigiriya</a>
+                    <a href="plain.php" class="wc-footer-link">Mirissa</a>
+                    <a href="plain.php" class="wc-footer-link">Nuwara Eliya</a>
                 </div>
                 <div class="col-lg-3">
                     <div class="wc-footer-head">CONTACT US</div>

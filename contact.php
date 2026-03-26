@@ -65,10 +65,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <div class="collapse navbar-collapse" id="navMenu">
             <ul class="navbar-nav ms-auto align-items-center gap-1 py-2 py-lg-0">
                 <li><a class="wc-nav-link" href="index.php">Home</a></li>
-                <li><a class="wc-nav-link" href="plain.html">Plan Trip</a></li>
-                <li><a class="wc-nav-link" href="destinations.html">Destinations</a></li>
-                <li><a class="wc-nav-link" href="itinerary.html">Itinerary</a></li>
-                <li><a class="wc-nav-link" href="hotels.html">Hotels</a></li>
+                <li><a class="wc-nav-link" href="plain.php">Plan Trip</a></li>
+                <li><a class="wc-nav-link" href="destinations.php">Destinations</a></li>
+                <li><a class="wc-nav-link" href="itinerary.php">Itinerary</a></li>
+                <li><a class="wc-nav-link" href="hotels.php">Hotels</a></li>
                 <li><a class="wc-nav-link active-page" href="contact.php">Contact</a></li>
                 <?php if (isLoggedIn()): ?>
                     <li><a class="wc-nav-link" href="dashboard.php">👤 <?= htmlspecialchars(getUsername()) ?></a></li>

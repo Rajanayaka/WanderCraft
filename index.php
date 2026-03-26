@@ -26,10 +26,10 @@ require_once 'includes/functions.php';
         <div class="collapse navbar-collapse" id="navMenu">
             <ul class="navbar-nav ms-auto align-items-center gap-1 py-2 py-lg-0">
                 <li><a class="wc-nav-link active-page" href="index.php">Home</a></li>
-                <li><a class="wc-nav-link" href="plain.html">Plan Trip</a></li>
-                <li><a class="wc-nav-link" href="destinations.html">Destinations</a></li>
-                <li><a class="wc-nav-link" href="itinerary.html">Itinerary</a></li>
-                <li><a class="wc-nav-link" href="hotels.html">Hotels</a></li>
+                <li><a class="wc-nav-link" href="plain.php">Plan Trip</a></li>
+                <li><a class="wc-nav-link" href="destinations.php">Destinations</a></li>
+                <li><a class="wc-nav-link" href="itinerary.php">Itinerary</a></li>
+                <li><a class="wc-nav-link" href="hotels.php">Hotels</a></li>
                 <li><a class="wc-nav-link" href="contact.php">Contact</a></li>
                 <?php if (isLoggedIn()): ?>
                     <li><a class="wc-nav-link" href="dashboard.php">👤 <?= htmlspecialchars(getUsername()) ?></a></li>
@@ -55,8 +55,8 @@ require_once 'includes/functions.php';
                 <h1 class="wc-hero-title">Craft Your<br/><em>Perfect</em> Journey<br/>Through Sri Lanka</h1>
                 <p class="wc-hero-sub mt-3 mb-4">Time-smart itinerary planning, expert place recommendations and hotel booking — all in one beautiful platform.</p>
                 <div class="d-flex gap-3 flex-wrap">
-                    <a href="plain.html" class="wc-btn-primary">Start Planning ✈</a>
-                    <a href="destinations.html" class="wc-btn-outline">Explore Destinations</a>
+                    <a href="plain.php" class="wc-btn-primary">Start Planning ✈</a>
+                    <a href="destinations.php" class="wc-btn-outline">Explore Destinations</a>
                 </div>
                 <?php if (!isLoggedIn()): ?>
                 <div class="mt-3">
@@ -183,7 +183,7 @@ require_once 'includes/functions.php';
             </div>
         </div>
         <div class="text-center mt-5">
-            <a href="plain.html" class="wc-btn-primary">Start Planning Your Trip →</a>
+            <a href="plain.php" class="wc-btn-primary">Start Planning Your Trip →</a>
         </div>
     </div>
 </section>
@@ -208,7 +208,7 @@ require_once 'includes/functions.php';
                 <div class="row g-3 mt-1" id="dest-modal-places"></div>
             </div>
             <div class="modal-footer border-0 px-4 pb-4">
-                <a href="plain.html" class="wc-btn-primary w-100 text-center text-decoration-none">
+                <a href="plain.php" class="wc-btn-primary w-100 text-center text-decoration-none">
                     Plan a Trip to <span id="dest-modal-plan-name"></span> →
                 </a>
             </div>
@@ -227,19 +227,19 @@ require_once 'includes/functions.php';
             <div class="col-lg-2 col-6">
                 <div class="wc-footer-head">PAGES</div>
                 <a href="index.php"         class="wc-footer-link">Home</a>
-                <a href="plain.html"        class="wc-footer-link">Plan Trip</a>
-                <a href="destinations.html" class="wc-footer-link">Destinations</a>
-                <a href="itinerary.html"    class="wc-footer-link">Itinerary</a>
-                <a href="hotels.html"       class="wc-footer-link">Hotels</a>
+                <a href="plain.php"        class="wc-footer-link">Plan Trip</a>
+                <a href="destinations.php" class="wc-footer-link">Destinations</a>
+                <a href="itinerary.php"    class="wc-footer-link">Itinerary</a>
+                <a href="hotels.php"       class="wc-footer-link">Hotels</a>
                 <a href="contact.php"       class="wc-footer-link">Contact</a>
             </div>
             <div class="col-lg-3 col-6">
                 <div class="wc-footer-head">DESTINATIONS</div>
-                <a href="plain.html" class="wc-footer-link">Kandy</a>
-                <a href="plain.html" class="wc-footer-link">Ella</a>
-                <a href="plain.html" class="wc-footer-link">Sigiriya</a>
-                <a href="plain.html" class="wc-footer-link">Mirissa</a>
-                <a href="plain.html" class="wc-footer-link">Nuwara Eliya</a>
+                <a href="plain.php" class="wc-footer-link">Kandy</a>
+                <a href="plain.php" class="wc-footer-link">Ella</a>
+                <a href="plain.php" class="wc-footer-link">Sigiriya</a>
+                <a href="plain.php" class="wc-footer-link">Mirissa</a>
+                <a href="plain.php" class="wc-footer-link">Nuwara Eliya</a>
             </div>
             <div class="col-lg-3">
                 <div class="wc-footer-head">CONTACT US</div>

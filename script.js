@@ -192,7 +192,7 @@ function goToReco() {
     selectedPlaces = [];
     window.scrollTo({ top: 0, behavior: 'smooth' });
     setTimeout(function () {
-      window.location.href = 'destinations.html';
+      window.location.href = 'destinations.php';
     }, 200);
   }
 }
@@ -333,7 +333,7 @@ function goToItinerary() {
   }
   window.scrollTo({ top: 0, behavior: 'smooth' });
   setTimeout(function () {
-    window.location.href = 'itinerary.html';
+    window.location.href = 'itinerary.php';
   }, 200);
 }
 
@@ -463,7 +463,7 @@ function renderSelectedList(day1, day2) {
        .concat(day2.map(function (pl) { return Object.assign({}, pl, { dl: 'Day 2' }); }));
 
   if (!all.length) {
-    container.innerHTML = '<p class="text-muted small">No places selected. <a href="destinations.html">Go back</a></p>';
+    container.innerHTML = '<p class="text-muted small">No places selected. <a href="destinations.php">Go back</a></p>';
     return;
   }
 
